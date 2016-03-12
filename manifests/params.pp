@@ -279,4 +279,6 @@ class rundeck::params {
 
   $file_keystorage_dir = '/var/lib/rundeck/var/storage'
   $file_keystorage_keys = { }
+
+  $profile_template = 'rundeck/profile.erb'
 }

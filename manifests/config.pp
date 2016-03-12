@@ -39,6 +39,7 @@ class rundeck::config(
   $acl_policies          = $rundeck::acl_policies,
   $api_policies          = $rundeck::api_policies,
   $rdeck_config_template = $rundeck::rdeck_config_template,
+  $profile_template      = $rundeck::profile_template,
   $file_keystorage_keys  = $rundeck::file_keystorage_keys,
 
 ) inherits rundeck::params {
@@ -132,7 +133,7 @@ class rundeck::config(
     owner   => $user,
     group   => $group,
     mode    => '0640',
-    content => template('rundeck/profile.erb'),
+    content => template($profile_template),
     notify  => Service[$service_name],
     require => File[$properties_dir],
   }
